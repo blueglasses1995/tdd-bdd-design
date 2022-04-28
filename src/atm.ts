@@ -2,7 +2,11 @@ import { Customer } from './customer';
 
 class Bank {}
 
-class AccountRegistry {}
+class AccountRegistry {
+  findByCustomerId(id: string): string | null {
+    return null;
+  }
+}
 export class Atm {
   constructor(private bank: Bank, private accountRegistry: AccountRegistry) {}
 
