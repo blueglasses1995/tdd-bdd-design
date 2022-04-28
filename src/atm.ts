@@ -2,8 +2,10 @@ import { Customer } from './customer';
 
 class Bank {}
 
+class Account {}
+
 class AccountRegistry {
-  findByCustomerId(id: string): string | null {
+  findByCustomerId(id: string): Account | null {
     return null;
   }
 }
