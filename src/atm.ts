@@ -1,11 +1,14 @@
 import { Customer } from './customer';
 
 class Bank {}
+
+class AccountRegistry {}
 export class Atm {
-  constructor(private bank: Bank) {}
+  constructor(private bank: Bank, private accountRegistry: AccountRegistry) {}
 
   balance(customer: Customer): number {
-    this.bank.balanceOfCustomer(customer.id);
+    const account = this.accountRegistry.findByCustomerId(customer.id);
+    this.bank.balanceOfAccount(account);
     return 0;
   }
 
