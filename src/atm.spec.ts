@@ -1,3 +1,5 @@
+class Customer {}
+
 class Atm {
   balance(customer: Customer) {
     return undefined;
@@ -6,7 +8,8 @@ class Atm {
 
 describe(Atm, () => {
   it('は特定顧客のバランスを問い合わせできる', () => {
-    let atm = new Atm();
+    const atm = new Atm();
+    const customer = new Customer();
     expect(atm.balance(customer)).toEqual(0);
   });
 });
