@@ -1,13 +1,28 @@
 import { Customer } from './customer';
 
+class Balance {
+  constructor(
+    private readonly _accountId: string,
+    private readonly _balance: number,
+  ) {}
+
+  get accountId() {
+    return this._accountId;
+  }
+
+  get balance() {
+    return this._balance;
+  }
+}
+
 class Bank {
-  private balances: Array<{ accountId: string; balance: number }> = [];
+  private readonly balances: Array<Balance> = [];
 
   balanceOfAccount(account: Account) {
     const data = this.balances.find(({ accountId }) => {
       accountId === account.id;
     });
-    return data.balance;
+    return data || null;
   }
 }
 
