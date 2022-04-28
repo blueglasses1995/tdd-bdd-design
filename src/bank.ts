@@ -3,7 +3,7 @@ import { Balance } from './balandce';
 import { IBank } from './IBank';
 
 export class Bank implements IBank {
-  private readonly balances: Array<Balance> = [new Balance('1', 1000)];
+  balances: Array<Balance> = [];
 
   balanceOfAccount(account: Account): Balance | null {
     const data = this.balances.find(
