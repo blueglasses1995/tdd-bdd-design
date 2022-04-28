@@ -6,13 +6,17 @@ import { Customer } from './customer';
 
 describe(Atm, () => {
   it('は<Given>特定顧客のバランスが0円の時、<When>特定顧客のバランスを問い合わせると、<Then>バランスが0円返ってくる', () => {
-    const atm = new Atm(new Bank(), new AccountRegistry());
+    const fakeBank = new Bank();
+    fakeBank.balances = [new Balance('1', 0)];
+    const atm = new Atm(fakeBank, new AccountRegistry());
     const customer = new Customer('1');
     expect(atm.balance(customer)).toEqual(new Balance('1', 0));
   });
 
   it('は<Given>特定顧客のバランスが1000円の時、<When>特定顧客のバランスを問い合わせると、<Then>バランスが1000円返ってくる', () => {
-    const atm = new Atm(new Bank(), new AccountRegistry());
+    const fakeBank = new Bank();
+    fakeBank.balances = [new Balance('1', 1000)];
+    const atm = new Atm(fakeBank, new AccountRegistry());
     const customer = new Customer('1');
     expect(atm.balance(customer)).toEqual(new Balance('1', 1000));
   });
