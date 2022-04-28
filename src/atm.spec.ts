@@ -1,8 +1,8 @@
 class Customer {}
 
 class Atm {
-  balance(customer: Customer) {
-    return undefined;
+  balance(customer: Customer): number {
+    return 0;
   }
 }
 
