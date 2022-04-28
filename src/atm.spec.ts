@@ -1,10 +1,5 @@
-class Customer {}
-
-class Atm {
-  balance(customer: Customer): number {
-    return 0;
-  }
-}
+import { Atm } from './atm';
+import { Customer } from './customer';
 
 describe(Atm, () => {
   it('は特定顧客のバランスを問い合わせできる', () => {
