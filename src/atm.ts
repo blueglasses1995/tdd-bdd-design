@@ -1,8 +1,23 @@
 import { Customer } from './customer';
 
-class Bank {}
+class Bank {
+  private balances: Array<{ accountId: string; balance: number }> = [];
 
-class Account {}
+  balanceOfAccount(account: Account) {
+    const data = this.balances.find(({ accountId }) => {
+      accountId === account.id;
+    });
+    return data.balance;
+  }
+}
+
+class Account {
+  constructor(private readonly _id: string) {}
+
+  get id() {
+    return this._id;
+  }
+}
 
 class AccountRegistry {
   findByCustomerId(id: string): Account | null {
