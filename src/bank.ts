@@ -1,9 +1,6 @@
 import { Account } from './account';
 import { Balance } from './balandce';
-
-interface IBank {
-  balanceOfAccount(account: Account): Balance | null;
-}
+import { IBank } from './IBank';
 
 export class Bank implements IBank {
   private readonly balances: Array<Balance> = [new Balance('1', 1000)];
