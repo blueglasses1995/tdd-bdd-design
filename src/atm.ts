@@ -13,7 +13,13 @@ export class Atm {
       throw new Error('Account not found');
     }
 
-    return this.bank.balanceOfAccount(account);
+    const balance = this.bank.balanceOfAccount(account);
+
+    if (balance === null) {
+      throw new Error('Balance not found');
+    }
+
+    return balance;
   }
 
   withdraw(number: number, customer: Customer): void {}
